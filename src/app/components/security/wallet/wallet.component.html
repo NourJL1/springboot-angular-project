@@ -1,0 +1,6 @@
+<div *ngIf="wallet">
+  <h2>Mon Wallet</h2>
+  <p><strong>Montant :</strong> {{ wallet.amount }} {{ wallet.currency }}</p>
+  <p><strong>Propriétaire :</strong> {{ wallet.ownerFullName }}</p>
+  <p><strong>Statut :</strong> {{ wallet.status }}</p>
+</div>
