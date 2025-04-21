@@ -19,14 +19,14 @@ export class LoginComponent {
 
   onSubmit(): void {
     this.authService.login(this.username, this.password).subscribe({
-      next: (response) => {
+      next: async (response) => {
         console.log('Login successful:', response);
   
         // Optionally store user ID or token (if your API returns it)
-        localStorage.setItem('userId', response.id); // adjust `response.id` if your backend returns something different
+        localStorage.setItem('userId', response.userId); // ✅ // adjust `response.id` if your backend returns something different
   
         // Redirect to wallet
-        this.router.navigate(['/wallet']);
+        await this.router.navigate(['/wallet']);
       },
       error: (error) => {
         console.error('Login error:', error);

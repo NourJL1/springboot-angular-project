@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AccueilComponent } from './components/security/accueil/accueil.component';
 import { LoginComponent } from './components/security/login/login.component';
 import { RegisterComponent } from './components/security/register/register.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
@@ -14,10 +15,11 @@ export const routes: Routes = [
     data: { role: 'ROLE_USER' },
   },
 
+  { path: 'acceuil', component: AccueilComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/acceuil', pathMatch: 'full' },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'wallet', component: WalletComponent },
 

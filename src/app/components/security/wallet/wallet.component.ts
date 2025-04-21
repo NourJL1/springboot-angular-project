@@ -15,11 +15,11 @@ export class WalletComponent implements OnInit {
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     const userId = localStorage.getItem('userId');
     this.http.get(`http://localhost:8080/api/wallet/user/${userId}`).subscribe({
       next: data => this.wallet = data,
-      error: err => console.error('Failed to load wallet', err),
+      error: err => console.error('Failed to load wallet', err)
     });
   }
 }

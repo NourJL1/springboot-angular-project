@@ -1,0 +1,11 @@
+<div>
+  <label>Full Name:</label>
+  <input type="text" [ngModel]="fullname" (ngModelChange)="fullnameChange.emit($event)" />
+</div>
+
+<div>
+  <label>Username:</label>
+  <input type="text" [ngModel]="username" (ngModelChange)="usernameChange.emit($event)" />
+</div>
+
+

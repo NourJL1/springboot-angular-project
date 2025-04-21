@@ -1,0 +1,10 @@
+<div>
+  <label>Email:</label>
+  <input type="email" [ngModel]="email" (ngModelChange)="emailChange.emit($event)" />
+</div>
+
+<div>
+  <label>Password:</label>
+  <input type="password" [ngModel]="password" (ngModelChange)="passwordChange.emit($event)" />
+</div>
+

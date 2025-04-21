@@ -1,0 +1,83 @@
+.credit-card-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.credit-card {
+  width: 350px;
+  height: 220px;
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+  border-radius: 15px;
+  padding: 20px;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.credit-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.credit-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.credit-card-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.credit-card-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.credit-card-body {
+  margin: 20px 0;
+}
+
+.credit-card-info {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.value {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.credit-card-footer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.credit-card-chip {
+  width: 40px;
+  height: 30px;
+  background: linear-gradient(135deg, #ffcc33, #ffb347);
+  border-radius: 5px;
+  position: relative;
+}
+

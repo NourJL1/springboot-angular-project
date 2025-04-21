@@ -1,81 +1,136 @@
 <div class="register-container">
-  <div class="register-header">
-    <img src="assets/logo.png" alt="App Logo" class="logo" />
-    <h2>Join Us!</h2>
-    <p class="subtitle">Create your account to get started</p>
+  <h2>Register</h2>
+
+  <!-- Step Indicator -->
+  <div class="steps">
+    <span [class.active]="currentStep === 1">Step 1</span>
+    <span [class.active]="currentStep === 2">Step 2</span>
+    <span [class.active]="currentStep === 3">Step 3</span>
+    <span [class.active]="currentStep === 4">step 4</span>
+    <span [class.active]="currentStep === 5">Step 5</span>
   </div>
 
-  <form (ngSubmit)="onSubmit()" #registerForm="ngForm" class="register-form">
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input
-        type="text"
-        id="username"
-        [(ngModel)]="user.username"
-        name="username"
-        class="form-control"
-        placeholder="Choose a username"
-        required
-      />
-    </div>
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        [(ngModel)]="user.password"
-        name="password"
-        class="form-control"
-        placeholder="Create a password"
-        required
-      />
+  <!-- Step 1 - Wallet Type Selection -->
+<div *ngIf="currentStep === 1" class="step">
+  <div class="wallet-selection">
+    <h3>Choose Wallet Type:</h3>
+  
+    <div class="wallet-options">
+  
+      <!-- Customer -->
+      <div 
+        class="wallet-card" 
+        [class.selected]="user.walletType === 'customer'"
+        (click)="user.walletType = 'customer'"
+      >
+        <input 
+          type="radio" 
+          name="walletType" 
+          value="customer" 
+          [(ngModel)]="user.walletType"
+          hidden
+        >
+        <h4>👤 Customer</h4>
+        <p>Use your wallet to buy, pay and manage your funds.</p>
+      </div>
+  
+      <!-- Interne -->
+      <div 
+        class="wallet-card" 
+        [class.selected]="user.walletType === 'interne'"
+        (click)="user.walletType = 'interne'"
+      >
+        <input 
+          type="radio" 
+          name="walletType" 
+          value="interne" 
+          [(ngModel)]="user.walletType"
+          hidden
+        >
+        <h4>🧑‍💼 Interne</h4>
+        <p>Internal use wallet. Track, test, and operate securely.</p>
+      </div>
+  
+      <!-- Merchant -->
+      <div 
+        class="wallet-card" 
+        [class.selected]="user.walletType === 'merchant'"
+        (click)="user.walletType = 'merchant'"
+      >
+        <input 
+          type="radio" 
+          name="walletType" 
+          value="merchant" 
+          [(ngModel)]="user.walletType"
+          hidden
+        >
+        <h4>🏬 Merchant</h4>
+        <p>Receive payments, manage sales and grow your business.</p>
+      </div>
+  
     </div>
+  </div>
+  
+</div>
 
-    <div class="form-group">
-      <label for="fullname">Full Name</label>
-      <input
-        type="text"
-        id="fullname"
-        [(ngModel)]="user.fullname"
-        name="fullname"
-        class="form-control"
-        placeholder="Enter your full name"
-        required
-      />
-    </div>
+  <!-- Step 2 -->
+  <div *ngIf="currentStep === 2" class="step">
+    <label>Full Name:</label>
+    <input [(ngModel)]="user.fullname" type="text" />
 
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input
-        type="email"
-        id="email"
-        [(ngModel)]="user.email"
-        name="email"
-        class="form-control"
-        placeholder="Enter your email address"
-        required
-      />
-    </div>
+    <label>Username:</label>
+    <input [(ngModel)]="user.username" type="text" />
+  </div>
 
-    <div *ngIf="errorMessage" class="alert alert-danger">
-      {{ errorMessage }}
-    </div>
+  <!-- Step 3 -->
+  <div *ngIf="currentStep === 3" class="step">
+    <label>Phone Number:</label>
+    <input [(ngModel)]="user.phone_nbr" type="text" />
+  </div>
 
-    <div *ngIf="successMessage" class="alert alert-success">
-      {{ successMessage }}
-    </div>
+  <!-- Step 4 -->
+  <div *ngIf="currentStep === 4" class="step">
+    <label>Email:</label>
+    <input [(ngModel)]="user.email" type="email" />
 
-    <button
-      type="submit"
-      class="btn btn-primary register-button"
-      [disabled]="!registerForm.form.valid"
-    >
-      Register
-    </button>
+    <label>Password:</label>
+    <input [(ngModel)]="user.password" type="password" />
+  </div>
 
-    <div class="extra-links">
-      <p>Already have an account? <a href="/login">Log in</a></p>
-    </div>
-  </form>
+  
+
+<!-- Step 5 - KYC -->
+<div *ngIf="currentStep === 5" class="step">
+  <label for="idType">Identification Type:</label>
+  <select [(ngModel)]="user.identificationType" name="idType">
+    <option value="CIN">ID Card</option>
+    <option value="PASSPORT">Passport</option>
+    <option value="CARTE_SEJOUR">Carte Séjour</option>
+  </select>
+
+  <label for="kycFiles">Upload ID Files (recto, verso):</label>
+  <input
+    type="file"
+    id="kycFiles"
+    multiple
+    (change)="onFileSelected($event)"
+    accept=".jpg,.jpeg,.png,.pdf"
+  />
+</div>
+
+<div class="buttons">
+  <button (click)="goToPreviousStep()" [disabled]="currentStep === 1">Back</button>
+  <button *ngIf="currentStep < 5" (click)="goToNextStep()">Next</button>
+  <button *ngIf="currentStep === 5" (click)="onSubmit()">Submit</button>
+</div>
+
+<!-- Login Redirect -->
+<div class="mt-4 text-center">
+  <p class="text-sm text-gray-600">
+    Already have an account?
+    <a href="/login" class="text-blue-500 hover:underline">Login here</a>
+  </p>
 </div>

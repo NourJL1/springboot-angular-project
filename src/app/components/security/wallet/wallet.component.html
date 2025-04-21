@@ -1,6 +1,29 @@
-<div *ngIf="wallet">
-  <h2>Mon Wallet</h2>
-  <p><strong>Montant :</strong> {{ wallet.amount }} {{ wallet.currency }}</p>
-  <p><strong>Propriétaire :</strong> {{ wallet.ownerFullName }}</p>
-  <p><strong>Statut :</strong> {{ wallet.status }}</p>
+<div *ngIf="wallet" class="credit-card-container">
+  <div class="credit-card">
+    <div class="credit-card-header">
+      <h2>Mon Wallet</h2>
+      <div class="credit-card-logo">$$$</div>
+    </div>
+    
+    <div class="credit-card-body">
+      <div class="credit-card-info">
+        <span class="label">Montant</span>
+        <span class="value">{{ wallet.amount }} {{ wallet.currency }}</span>
+      </div>
+      
+      <div class="credit-card-info">
+        <span class="label">Propriétaire</span>
+        <span class="value">{{ wallet.ownerFullName }}</span>
+      </div>
+      
+      <div class="credit-card-info">
+        <span class="label">Statut</span>
+        <span class="value">{{ wallet.status }}</span>
+      </div>
+    </div>
+    
+    <div class="credit-card-footer">
+      <div class="credit-card-chip"></div>
+    </div>
+  </div>
 </div>
