@@ -6,6 +6,7 @@ import { ProfileComponent } from './components/user/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ForgotPasswordComponent } from './components/security/forgot-password/forgot-password.component';
 import { WalletComponent } from './components/security/wallet/wallet.component';
+import { NavbarComponent } from './components/security/navbar/navbar.component';
 export const routes: Routes = [
 
   {
@@ -22,5 +23,6 @@ export const routes: Routes = [
   { path: '', redirectTo: '/acceuil', pathMatch: 'full' },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'wallet', component: WalletComponent },
+  {path: 'navbar', component: NavbarComponent}
 
 ];

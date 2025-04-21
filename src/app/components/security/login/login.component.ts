@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
   imports: [FormsModule, CommonModule],
   styleUrls: ['./login.component.css'],
 })
+
+
 export class LoginComponent {
   username: string = '';
   password: string = '';

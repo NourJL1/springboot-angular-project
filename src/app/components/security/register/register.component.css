@@ -176,3 +176,15 @@ button:hover:not([disabled]) {
   border-color: #e32323;
   background-color: #f0f8ff;
 }
+
+.custom-phone-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Ensure the dropdown has proper z-index */
+.ngx-intl-tel-input.dropdown {
+  z-index: 1000;
+}

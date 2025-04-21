@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,8 @@ import { CommonModule } from '@angular/common';
 export class WalletComponent implements OnInit {
   wallet: any = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient ,private router: Router) {}
+
 
   ngOnInit() {
     const userId = localStorage.getItem('userId');
@@ -21,5 +23,13 @@ export class WalletComponent implements OnInit {
       next: data => this.wallet = data,
       error: err => console.error('Failed to load wallet', err)
     });
+  }
+  logout() {
+    // Here you might also want to clear any user session/tokens
+    // For example:
+    // localStorage.removeItem('authToken');
+    
+    // Redirect to login page
+    this.router.navigate(['/login']);
   }
 }
