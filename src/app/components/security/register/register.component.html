@@ -119,12 +119,39 @@
 
   <!-- Step 5 -->
   <div *ngIf="currentStep === 5" class="step">
-    <label>Email:</label>
-    <input [(ngModel)]="user.email" type="email" />
-
-    <label>Password:</label>
-    <input [(ngModel)]="user.password" type="password" />
+    <form #form="ngForm">
+      <label>Email:</label>
+      <input 
+        [(ngModel)]="user.email" 
+        type="email" 
+        name="email"
+        required 
+        #email="ngModel"
+        email 
+      />
+      <div *ngIf="email.invalid && email.touched" style="color: red;">
+        <div *ngIf="email.errors?.['required']">L'email est requis.</div>
+        <div *ngIf="email.errors?.['email']">Format d'email invalide.</div>
+      </div>
+  
+      <label>Password:</label>
+      <input 
+        [(ngModel)]="user.password" 
+        type="password" 
+        name="password"
+        required 
+        minlength="6" 
+        #password="ngModel"
+      />
+      <div *ngIf="password.invalid && password.touched" style="color: red;">
+        <div *ngIf="password.errors?.['required']">Le mot de passe est requis.</div>
+        <div *ngIf="password.errors?.['minlength']">
+          Le mot de passe doit contenir au moins {{ password.errors?.['minlength'].requiredLength }} caractères.
+        </div>
+      </div>
+    </form>
   </div>
+  
 
   
 

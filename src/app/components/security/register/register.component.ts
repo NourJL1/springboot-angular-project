@@ -9,6 +9,7 @@ import { StepEmailComponent } from './step-email/step-email.component';
 import { NgxIntlTelInputModule, CountryISO, SearchCountryField } from 'ngx-intl-tel-input';
 import { HttpClient } from '@angular/common/http';
 
+
 interface City {
   name: string;
 }
@@ -69,13 +70,14 @@ export class RegisterComponent {
     username: '',
     password: '',
     fullname: '',
-    phone_nbr: '',
+    phoneNbr: '',
     email: '',
     identificationType: '',
     walletType: '',
     country: '',
     city: ''
   };
+  
   
   errorMessage: string = '';
   successMessage: string = '';
@@ -136,7 +138,7 @@ if (this.currentStep === 4) {
   }
 
   const phoneValue = phoneControl.value as PhoneNumber;
-  this.user.phone_nbr = phoneValue.e164Number;
+  this.user.phoneNbr = phoneValue.e164Number;
 }
   
     // Step 5: Validate Email and Password
@@ -205,7 +207,7 @@ if (this.currentStep === 4) {
     }
   
     const phoneValue = this.phoneForm.get('phone')?.value as PhoneNumber;
-    this.user.phone_nbr = phoneValue.e164Number;
+    this.user.phoneNbr = phoneValue.e164Number;
     
     this.userService.register(this.user).subscribe({
       next: () => {

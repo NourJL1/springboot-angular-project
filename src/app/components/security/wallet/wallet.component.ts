@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
   standalone: true,
   templateUrl: './wallet.component.html',
   styleUrls: ['./wallet.component.css'],
-  imports: [CommonModule] 
+  imports: [CommonModule, NavbarComponent] 
 })
 export class WalletComponent implements OnInit {
   wallet: any = null;
