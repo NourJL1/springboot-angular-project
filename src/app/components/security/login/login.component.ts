@@ -22,13 +22,27 @@ export class LoginComponent {
   onSubmit(): void {
     this.authService.login(this.username, this.password).subscribe({
       next: async (response) => {
-        console.log('Login successful:', response);
+        console.log('Full login response:', response);
+        console.log('Role array:', response.role);
+        console.log('First role:', response.role?.[0]);
   
-        // Optionally store user ID or token (if your API returns it)
-        localStorage.setItem('userId', response.userId); // ✅ // adjust `response.id` if your backend returns something different
+        // ✅ FIX: access role name properly from the object inside the array
+        const role = response.role?.[0]?.name?.toLowerCase();
   
-        // Redirect to wallet
-        await this.router.navigate(['/wallet']);
+        if (!role) {
+          this.errorMessage = 'No role found in response.';
+          return;
+        }
+  
+        localStorage.setItem('userId', response.userId);
+        localStorage.setItem('role', role);
+  
+        // ✅ redirect based on role
+        if (role === 'admin') {
+          await this.router.navigate(['/admin-dashboard']);
+        } else {
+          await this.router.navigate(['/wallet']);
+        }
       },
       error: (error) => {
         console.error('Login error:', error);
@@ -36,5 +50,4 @@ export class LoginComponent {
       },
     });
   }
-  
 }

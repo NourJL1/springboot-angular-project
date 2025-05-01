@@ -7,6 +7,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ForgotPasswordComponent } from './components/security/forgot-password/forgot-password.component';
 import { WalletComponent } from './components/security/wallet/wallet.component';
 import { NavbarComponent } from './components/security/navbar/navbar.component';
+import { AdminDashboardComponent } from './components/security/admin-dashboard/admin-dashboard.component';
 export const routes: Routes = [
 
   {
@@ -23,6 +24,7 @@ export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'wallet', component: WalletComponent },
-  {path: 'navbar', component: NavbarComponent}
+  {path: 'navbar', component: NavbarComponent},
+  {path: 'admin-dashboard', component: AdminDashboardComponent}
 
 ];

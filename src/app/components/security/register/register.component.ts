@@ -3,9 +3,6 @@ import { UserService } from '../../../services/user.service';
 import { Router } from '@angular/router';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators, AbstractControl,  } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { StepUsernameComponent } from './step-username/step-username.component';
-import { StepPhoneComponent } from './step-phone/step-phone.component';
-import { StepEmailComponent } from './step-email/step-email.component';
 import { NgxIntlTelInputModule, CountryISO, SearchCountryField } from 'ngx-intl-tel-input';
 import { HttpClient } from '@angular/common/http';
 
@@ -31,9 +28,6 @@ interface PhoneNumber {
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    StepUsernameComponent,
-    StepPhoneComponent,
-    StepEmailComponent,
     NgxIntlTelInputModule,
   ],
   templateUrl: './register.component.html',
