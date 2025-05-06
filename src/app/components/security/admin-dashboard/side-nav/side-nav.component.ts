@@ -1,0 +1,33 @@
+import {Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Router, RouterOutlet} from "@angular/router";
+import { AdminDashboardComponent } from '../admin-dashboard.component';
+
+
+@Component({
+  selector: 'app-side-nav',
+  imports: [RouterOutlet, AdminDashboardComponent],
+  templateUrl: './side-nav.component.html',
+  styleUrls: ['./side-nav.component.css']
+})
+export class SideNavComponent implements OnInit{
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {}
+
+  isCollapsed = false;
+
+  toggleSidebar(): void {
+    this.isCollapsed = !this.isCollapsed;
+    
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.getElementById('mainContent');
+    
+    if (sidebar && mainContent) {
+      sidebar.classList.toggle('collapsed');
+      mainContent.classList.toggle('expanded');
+      (mainContent as HTMLElement).style.marginLeft = this.isCollapsed ? '80px' : '260px';
+    }
+  }
+
+}

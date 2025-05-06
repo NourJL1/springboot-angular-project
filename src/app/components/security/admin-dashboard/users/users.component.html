@@ -1,0 +1,851 @@
+<div class="flex h-screen overflow-hidden">
+  <!-- Main Content -->
+  <div class="flex-1 flex flex-col overflow-hidden">
+      
+      <!-- Main Content Area -->
+      
+          <!-- Date and Quick Stats -->
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+              <div>
+                  <h2 class="text-sm text-gray-500">Friday, May 2, 2025</h2>
+                  <h3 class="text-xl font-semibold">User Accounts</h3>
+              </div>
+              <div class="mt-4 md:mt-0 flex space-x-3">
+                  <button class="!rounded-button flex items-center px-4 py-2 bg-white border border-gray-200 text-sm font-medium hover:bg-gray-50 whitespace-nowrap">
+                      <div class="w-4 h-4 flex items-center justify-center mr-2">
+                          <i class="ri-download-2-line"></i>
+                      </div>
+                      Export Accounts
+                  </button>
+                  <button class="!rounded-button flex items-center px-4 py-2 bg-primary text-white text-sm font-medium hover:bg-red-700 whitespace-nowrap" id="addAccountBtn">
+                      <div class="w-4 h-4 flex items-center justify-center mr-2">
+                          <i class="ri-user-add-line"></i>
+                      </div>
+                      Add New Account
+                  </button>
+              </div>
+          </div>
+          <!-- Stats Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+              <div class="bg-white rounded shadow p-5">
+                  <div class="flex items-center justify-between">
+                      <div>
+                          <p class="text-sm text-gray-500">Total Accounts</p>
+                          <h4 class="text-2xl font-semibold mt-1">1,248</h4>
+                          <div class="flex items-center mt-2 text-sm">
+                              <div class="w-4 h-4 flex items-center justify-center text-green-500 mr-1">
+                                  <i class="ri-arrow-up-line"></i>
+                              </div>
+                              <span class="text-green-500 font-medium">5.3%</span>
+                              <span class="text-gray-500 ml-1">vs last month</span>
+                          </div>
+                      </div>
+                      <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
+                          <div class="w-6 h-6 flex items-center justify-center text-blue-500">
+                              <i class="ri-user-3-line"></i>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="bg-white rounded shadow p-5">
+                  <div class="flex items-center justify-between">
+                      <div>
+                          <p class="text-sm text-gray-500">Active Users</p>
+                          <h4 class="text-2xl font-semibold mt-1">1,156</h4>
+                          <div class="flex items-center mt-2 text-sm">
+                              <div class="w-4 h-4 flex items-center justify-center text-green-500 mr-1">
+                                  <i class="ri-arrow-up-line"></i>
+                              </div>
+                              <span class="text-green-500 font-medium">3.2%</span>
+                              <span class="text-gray-500 ml-1">vs last month</span>
+                          </div>
+                      </div>
+                      <div class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center">
+                          <div class="w-6 h-6 flex items-center justify-center text-green-500">
+                              <i class="ri-user-follow-line"></i>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="bg-white rounded shadow p-5">
+                  <div class="flex items-center justify-between">
+                      <div>
+                          <p class="text-sm text-gray-500">Inactive Users</p>
+                          <h4 class="text-2xl font-semibold mt-1">92</h4>
+                          <div class="flex items-center mt-2 text-sm">
+                              <div class="w-4 h-4 flex items-center justify-center text-red-500 mr-1">
+                                  <i class="ri-arrow-down-line"></i>
+                              </div>
+                              <span class="text-red-500 font-medium">1.5%</span>
+                              <span class="text-gray-500 ml-1">vs last month</span>
+                          </div>
+                      </div>
+                      <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center">
+                          <div class="w-6 h-6 flex items-center justify-center text-red-500">
+                              <i class="ri-user-unfollow-line"></i>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="bg-white rounded shadow p-5">
+                  <div class="flex items-center justify-between">
+                      <div>
+                          <p class="text-sm text-gray-500">Admin Users</p>
+                          <h4 class="text-2xl font-semibold mt-1">24</h4>
+                          <div class="flex items-center mt-2 text-sm">
+                              <div class="w-4 h-4 flex items-center justify-center text-gray-500 mr-1">
+                                  <i class="ri-subtract-line"></i>
+                              </div>
+                              <span class="text-gray-500">No change</span>
+                          </div>
+                      </div>
+                      <div class="w-12 h-12 rounded-full bg-purple-50 flex items-center justify-center">
+                          <div class="w-6 h-6 flex items-center justify-center text-purple-500">
+                              <i class="ri-admin-line"></i>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- Filter and Search Section -->
+          <div class="bg-white rounded shadow mb-6">
+              <div class="p-5 border-b border-gray-200">
+                  <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                      <div class="mb-4 md:mb-0">
+                          <div class="flex space-x-2">
+                              <button class="!rounded-button px-4 py-2 text-sm bg-primary text-white hover:bg-red-700 whitespace-nowrap">All</button>
+                              <button class="!rounded-button px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 whitespace-nowrap">Active</button>
+                              <button class="!rounded-button px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 whitespace-nowrap">Inactive</button>
+                              <button class="!rounded-button px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 whitespace-nowrap">Pending</button>
+                          </div>
+                      </div>
+                      <div class="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-3">
+                          <div class="relative">
+                              <input type="text" placeholder="Search accounts..." class="pl-9 pr-4 py-2 border border-gray-200 rounded text-sm w-full md:w-64">
+                              <div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 flex items-center justify-center text-gray-400">
+                                  <i class="ri-search-line"></i>
+                              </div>
+                          </div>
+                          <div class="flex space-x-2">
+                              <button class="!rounded-button w-9 h-9 flex items-center justify-center border border-gray-200 hover:bg-gray-50 whitespace-nowrap">
+                                  <i class="ri-filter-3-line text-gray-500"></i>
+                              </button>
+                              <div class="dropdown">
+                                  <button class="!rounded-button w-9 h-9 flex items-center justify-center border border-gray-200 hover:bg-gray-50 whitespace-nowrap">
+                                      <i class="ri-more-2-fill text-gray-500"></i>
+                                  </button>
+                                  <div class="dropdown-content right-0 mt-1">
+                                      <a href="#" class="flex items-center">
+                                          <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                              <i class="ri-user-settings-line"></i>
+                                          </div>
+                                          Bulk Edit
+                                      </a>
+                                      <a href="#" class="flex items-center">
+                                          <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                              <i class="ri-delete-bin-line"></i>
+                                          </div>
+                                          Bulk Delete
+                                      </a>
+                                      <a href="#" class="flex items-center">
+                                          <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                              <i class="ri-download-2-line"></i>
+                                          </div>
+                                          Export Selected
+                                      </a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- Accounts Table -->
+              <div class="overflow-x-auto">
+                  <table class="w-full">
+                      <thead>
+                          <tr class="text-left text-xs text-gray-500 bg-gray-50">
+                              <th class="px-5 py-3 font-medium">
+                                  <label class="custom-checkbox">
+                                      <input type="checkbox" id="selectAll">
+                                      <span class="checkmark"></span>
+                                  </label>
+                              </th>
+                              <th class="px-5 py-3 font-medium">User</th>
+                              <th class="px-5 py-3 font-medium">Email</th>
+                              <th class="px-5 py-3 font-medium">Role</th>
+                              <th class="px-5 py-3 font-medium">Status</th>
+                              <th class="px-5 py-3 font-medium">Created Date</th>
+                              <th class="px-5 py-3 font-medium">Last Login</th>
+                              <th class="px-5 py-3 font-medium">Actions</th>
+                          </tr>
+                      </thead>
+                      <tbody class="divide-y divide-gray-200">
+                          <tr class="hover:bg-gray-50">
+                              <td class="px-5 py-4">
+                                  <label class="custom-checkbox">
+                                      <input type="checkbox" class="account-checkbox">
+                                      <span class="checkmark"></span>
+                                  </label>
+                              </td>
+                              <td class="px-5 py-4">
+                                  <div class="flex items-center">
+                                      <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-medium text-sm">JD</div>
+                                      <div class="ml-3">
+                                          <p class="text-sm font-medium">James Donovan</p>
+                                          <p class="text-xs text-gray-500">ID: #USR-78945</p>
+                                      </div>
+                                  </div>
+                              </td>
+                              <td class="px-5 py-4 text-sm text-gray-600">james.donovan&#64;example.com</td>
+                              <td class="px-5 py-4">
+                                  <span class="px-2 py-1 text-xs font-medium bg-purple-100 text-purple-800 rounded-full">Administrator</span>
+                              </td>
+                              <td class="px-5 py-4">
+                                  <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Active</span>
+                              </td>
+                              <td class="px-5 py-4 text-sm text-gray-600">Apr 15, 2025</td>
+                              <td class="px-5 py-4 text-sm text-gray-600">May 02, 2025 09:45 AM</td>
+                              <td class="px-5 py-4">
+                                  <div class="dropdown">
+                                      <button class="!rounded-button w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-gray-100 whitespace-nowrap">
+                                          <i class="ri-more-2-fill"></i>
+                                      </button>
+                                      <div class="dropdown-content right-0">
+                                          <a href="#" class="edit-account-btn flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-edit-line"></i>
+                                              </div>
+                                              Edit
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-key-2-line"></i>
+                                              </div>
+                                              Reset Password
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-shield-keyhole-line"></i>
+                                              </div>
+                                              Permissions
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-user-unfollow-line"></i>
+                                              </div>
+                                              Deactivate
+                                          </a>
+                                          <a href="#" class="flex items-center text-red-600">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-delete-bin-line"></i>
+                                              </div>
+                                              Delete
+                                          </a>
+                                      </div>
+                                  </div>
+                              </td>
+                          </tr>
+                          <tr class="hover:bg-gray-50">
+                              <td class="px-5 py-4">
+                                  <label class="custom-checkbox">
+                                      <input type="checkbox" class="account-checkbox">
+                                      <span class="checkmark"></span>
+                                  </label>
+                              </td>
+                              <td class="px-5 py-4">
+                                  <div class="flex items-center">
+                                      <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-medium text-sm">ET</div>
+                                      <div class="ml-3">
+                                          <p class="text-sm font-medium">Emily Thompson</p>
+                                          <p class="text-xs text-gray-500">ID: #USR-78944</p>
+                                      </div>
+                                  </div>
+                              </td>
+                              <td class="px-5 py-4 text-sm text-gray-600">emily.thompson&#64;example.com</td>
+                              <td class="px-5 py-4">
+                                  <span class="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">Manager</span>
+                              </td>
+                              <td class="px-5 py-4">
+                                  <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Active</span>
+                              </td>
+                              <td class="px-5 py-4 text-sm text-gray-600">Mar 22, 2025</td>
+                              <td class="px-5 py-4 text-sm text-gray-600">May 01, 2025 02:15 PM</td>
+                              <td class="px-5 py-4">
+                                  <div class="dropdown">
+                                      <button class="!rounded-button w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-gray-100 whitespace-nowrap">
+                                          <i class="ri-more-2-fill"></i>
+                                      </button>
+                                      <div class="dropdown-content right-0">
+                                          <a href="#" class="edit-account-btn flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-edit-line"></i>
+                                              </div>
+                                              Edit
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-key-2-line"></i>
+                                              </div>
+                                              Reset Password
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-shield-keyhole-line"></i>
+                                              </div>
+                                              Permissions
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-user-unfollow-line"></i>
+                                              </div>
+                                              Deactivate
+                                          </a>
+                                          <a href="#" class="flex items-center text-red-600">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-delete-bin-line"></i>
+                                              </div>
+                                              Delete
+                                          </a>
+                                      </div>
+                                  </div>
+                              </td>
+                          </tr>
+                          <tr class="hover:bg-gray-50">
+                              <td class="px-5 py-4">
+                                  <label class="custom-checkbox">
+                                      <input type="checkbox" class="account-checkbox">
+                                      <span class="checkmark"></span>
+                                  </label>
+                              </td>
+                              <td class="px-5 py-4">
+                                  <div class="flex items-center">
+                                      <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-medium text-sm">RW</div>
+                                      <div class="ml-3">
+                                          <p class="text-sm font-medium">Robert Wilson</p>
+                                          <p class="text-xs text-gray-500">ID: #USR-78943</p>
+                                      </div>
+                                  </div>
+                              </td>
+                              <td class="px-5 py-4 text-sm text-gray-600">robert.wilson&#64;example.com</td>
+                              <td class="px-5 py-4">
+                                  <span class="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800 rounded-full">User</span>
+                              </td>
+                              <td class="px-5 py-4">
+                                  <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Active</span>
+                              </td>
+                              <td class="px-5 py-4 text-sm text-gray-600">Feb 18, 2025</td>
+                              <td class="px-5 py-4 text-sm text-gray-600">Apr 30, 2025 11:20 AM</td>
+                              <td class="px-5 py-4">
+                                  <div class="dropdown">
+                                      <button class="!rounded-button w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-gray-100 whitespace-nowrap">
+                                          <i class="ri-more-2-fill"></i>
+                                      </button>
+                                      <div class="dropdown-content right-0">
+                                          <a href="#" class="edit-account-btn flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-edit-line"></i>
+                                              </div>
+                                              Edit
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-key-2-line"></i>
+                                              </div>
+                                              Reset Password
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-shield-keyhole-line"></i>
+                                              </div>
+                                              Permissions
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-user-unfollow-line"></i>
+                                              </div>
+                                              Deactivate
+                                          </a>
+                                          <a href="#" class="flex items-center text-red-600">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-delete-bin-line"></i>
+                                              </div>
+                                              Delete
+                                          </a>
+                                      </div>
+                                  </div>
+                              </td>
+                          </tr>
+                          <tr class="hover:bg-gray-50">
+                              <td class="px-5 py-4">
+                                  <label class="custom-checkbox">
+                                      <input type="checkbox" class="account-checkbox">
+                                      <span class="checkmark"></span>
+                                  </label>
+                              </td>
+                              <td class="px-5 py-4">
+                                  <div class="flex items-center">
+                                      <div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-medium text-sm">SL</div>
+                                      <div class="ml-3">
+                                          <p class="text-sm font-medium">Sarah Lambert</p>
+                                          <p class="text-xs text-gray-500">ID: #USR-78942</p>
+                                      </div>
+                                  </div>
+                              </td>
+                              <td class="px-5 py-4 text-sm text-gray-600">sarah.lambert&#64;example.com</td>
+                              <td class="px-5 py-4">
+                                  <span class="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">Manager</span>
+                              </td>
+                              <td class="px-5 py-4">
+                                  <span class="px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">Pending</span>
+                              </td>
+                              <td class="px-5 py-4 text-sm text-gray-600">Apr 28, 2025</td>
+                              <td class="px-5 py-4 text-sm text-gray-600">-</td>
+                              <td class="px-5 py-4">
+                                  <div class="dropdown">
+                                      <button class="!rounded-button w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-gray-100 whitespace-nowrap">
+                                          <i class="ri-more-2-fill"></i>
+                                      </button>
+                                      <div class="dropdown-content right-0">
+                                          <a href="#" class="edit-account-btn flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-edit-line"></i>
+                                              </div>
+                                              Edit
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-key-2-line"></i>
+                                              </div>
+                                              Reset Password
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-shield-keyhole-line"></i>
+                                              </div>
+                                              Permissions
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-user-follow-line"></i>
+                                              </div>
+                                              Activate
+                                          </a>
+                                          <a href="#" class="flex items-center text-red-600">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-delete-bin-line"></i>
+                                              </div>
+                                              Delete
+                                          </a>
+                                      </div>
+                                  </div>
+                              </td>
+                          </tr>
+                          <tr class="hover:bg-gray-50">
+                              <td class="px-5 py-4">
+                                  <label class="custom-checkbox">
+                                      <input type="checkbox" class="account-checkbox">
+                                      <span class="checkmark"></span>
+                                  </label>
+                              </td>
+                              <td class="px-5 py-4">
+                                  <div class="flex items-center">
+                                      <div class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 font-medium text-sm">MJ</div>
+                                      <div class="ml-3">
+                                          <p class="text-sm font-medium">Michael Johnson</p>
+                                          <p class="text-xs text-gray-500">ID: #USR-78941</p>
+                                      </div>
+                                  </div>
+                              </td>
+                              <td class="px-5 py-4 text-sm text-gray-600">michael.johnson&#64;example.com</td>
+                              <td class="px-5 py-4">
+                                  <span class="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800 rounded-full">User</span>
+                              </td>
+                              <td class="px-5 py-4">
+                                  <span class="px-2 py-1 text-xs font-medium bg-red-100 text-red-800 rounded-full">Inactive</span>
+                              </td>
+                              <td class="px-5 py-4 text-sm text-gray-600">Jan 05, 2025</td>
+                              <td class="px-5 py-4 text-sm text-gray-600">Mar 15, 2025 04:30 PM</td>
+                              <td class="px-5 py-4">
+                                  <div class="dropdown">
+                                      <button class="!rounded-button w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-gray-100 whitespace-nowrap">
+                                          <i class="ri-more-2-fill"></i>
+                                      </button>
+                                      <div class="dropdown-content right-0">
+                                          <a href="#" class="edit-account-btn flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-edit-line"></i>
+                                              </div>
+                                              Edit
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-key-2-line"></i>
+                                              </div>
+                                              Reset Password
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-shield-keyhole-line"></i>
+                                              </div>
+                                              Permissions
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-user-follow-line"></i>
+                                              </div>
+                                              Activate
+                                          </a>
+                                          <a href="#" class="flex items-center text-red-600">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-delete-bin-line"></i>
+                                              </div>
+                                              Delete
+                                          </a>
+                                      </div>
+                                  </div>
+                              </td>
+                          </tr>
+                          <tr class="hover:bg-gray-50">
+                              <td class="px-5 py-4">
+                                  <label class="custom-checkbox">
+                                      <input type="checkbox" class="account-checkbox">
+                                      <span class="checkmark"></span>
+                                  </label>
+                              </td>
+                              <td class="px-5 py-4">
+                                  <div class="flex items-center">
+                                      <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-medium text-sm">AB</div>
+                                      <div class="ml-3">
+                                          <p class="text-sm font-medium">Alexandra Brown</p>
+                                          <p class="text-xs text-gray-500">ID: #USR-78940</p>
+                                      </div>
+                                  </div>
+                              </td>
+                              <td class="px-5 py-4 text-sm text-gray-600">alex.brown&#64;example.com</td>
+                              <td class="px-5 py-4">
+                                  <span class="px-2 py-1 text-xs font-medium bg-purple-100 text-purple-800 rounded-full">Administrator</span>
+                              </td>
+                              <td class="px-5 py-4">
+                                  <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Active</span>
+                              </td>
+                              <td class="px-5 py-4 text-sm text-gray-600">Dec 12, 2024</td>
+                              <td class="px-5 py-4 text-sm text-gray-600">May 01, 2025 10:15 AM</td>
+                              <td class="px-5 py-4">
+                                  <div class="dropdown">
+                                      <button class="!rounded-button w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-gray-100 whitespace-nowrap">
+                                          <i class="ri-more-2-fill"></i>
+                                      </button>
+                                      <div class="dropdown-content right-0">
+                                          <a href="#" class="edit-account-btn flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-edit-line"></i>
+                                              </div>
+                                              Edit
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-key-2-line"></i>
+                                              </div>
+                                              Reset Password
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-shield-keyhole-line"></i>
+                                              </div>
+                                              Permissions
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-user-unfollow-line"></i>
+                                              </div>
+                                              Deactivate
+                                          </a>
+                                          <a href="#" class="flex items-center text-red-600">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-delete-bin-line"></i>
+                                              </div>
+                                              Delete
+                                          </a>
+                                      </div>
+                                  </div>
+                              </td>
+                          </tr>
+                          <tr class="hover:bg-gray-50">
+                              <td class="px-5 py-4">
+                                  <label class="custom-checkbox">
+                                      <input type="checkbox" class="account-checkbox">
+                                      <span class="checkmark"></span>
+                                  </label>
+                              </td>
+                              <td class="px-5 py-4">
+                                  <div class="flex items-center">
+                                      <div class="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 font-medium text-sm">DK</div>
+                                      <div class="ml-3">
+                                          <p class="text-sm font-medium">Daniel Kim</p>
+                                          <p class="text-xs text-gray-500">ID: #USR-78939</p>
+                                      </div>
+                                  </div>
+                              </td>
+                              <td class="px-5 py-4 text-sm text-gray-600">daniel.kim&#64;example.com</td>
+                              <td class="px-5 py-4">
+                                  <span class="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800 rounded-full">User</span>
+                              </td>
+                              <td class="px-5 py-4">
+                                  <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Active</span>
+                              </td>
+                              <td class="px-5 py-4 text-sm text-gray-600">Mar 05, 2025</td>
+                              <td class="px-5 py-4 text-sm text-gray-600">Apr 29, 2025 03:45 PM</td>
+                              <td class="px-5 py-4">
+                                  <div class="dropdown">
+                                      <button class="!rounded-button w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-gray-100 whitespace-nowrap">
+                                          <i class="ri-more-2-fill"></i>
+                                      </button>
+                                      <div class="dropdown-content right-0">
+                                          <a href="#" class="edit-account-btn flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-edit-line"></i>
+                                              </div>
+                                              Edit
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-key-2-line"></i>
+                                              </div>
+                                              Reset Password
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-shield-keyhole-line"></i>
+                                              </div>
+                                              Permissions
+                                          </a>
+                                          <a href="#" class="flex items-center">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-user-unfollow-line"></i>
+                                              </div>
+                                              Deactivate
+                                          </a>
+                                          <a href="#" class="flex items-center text-red-600">
+                                              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                                                  <i class="ri-delete-bin-line"></i>
+                                              </div>
+                                              Delete
+                                          </a>
+                                      </div>
+                                  </div>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+              <div class="p-5 border-t border-gray-200 flex flex-col md:flex-row md:items-center md:justify-between">
+                  <div class="text-sm text-gray-500 mb-4 md:mb-0">Showing 7 of 1,248 accounts</div>
+                  <div class="flex items-center justify-between md:justify-end w-full md:w-auto">
+                      <div class="flex items-center mr-4">
+                          <span class="text-sm text-gray-500 mr-2">Show:</span>
+                          <select class="px-2 py-1 border border-gray-200 rounded text-sm pr-8">
+                              <option>10</option>
+                              <option selected>25</option>
+                              <option>50</option>
+                              <option>100</option>
+                          </select>
+                      </div>
+                      <div class="flex space-x-1">
+                          <button class="!rounded-button w-9 h-9 flex items-center justify-center border border-gray-200 text-gray-500 hover:bg-gray-50 whitespace-nowrap">
+                              <i class="ri-arrow-left-s-line"></i>
+                          </button>
+                          <button class="!rounded-button w-9 h-9 flex items-center justify-center border border-gray-200 bg-primary text-white hover:bg-red-700 whitespace-nowrap">1</button>
+                          <button class="!rounded-button w-9 h-9 flex items-center justify-center border border-gray-200 text-gray-700 hover:bg-gray-50 whitespace-nowrap">2</button>
+                          <button class="!rounded-button w-9 h-9 flex items-center justify-center border border-gray-200 text-gray-700 hover:bg-gray-50 whitespace-nowrap">3</button>
+                          <button class="!rounded-button w-9 h-9 flex items-center justify-center border border-gray-200 text-gray-500 hover:bg-gray-50 whitespace-nowrap">
+                              <i class="ri-arrow-right-s-line"></i>
+                          </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+  </div>
+</div>
+
+<!-- Add/Edit Account Modal -->
+<div id="accountModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl mx-4">
+      <div class="p-6 border-b border-gray-200">
+          <div class="flex items-center justify-between">
+              <h3 class="text-lg font-semibold" id="modalTitle">Add New Account</h3>
+              <button id="closeModal" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-gray-100 rounded-full">
+                  <i class="ri-close-line"></i>
+              </button>
+          </div>
+      </div>
+      <div class="p-6">
+          <form id="accountForm">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                      <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                      <input type="text" class="w-full px-4 py-2 border border-gray-200 rounded text-sm" placeholder="Enter first name">
+                  </div>
+                  <div>
+                      <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                      <input type="text" class="w-full px-4 py-2 border border-gray-200 rounded text-sm" placeholder="Enter last name">
+                  </div>
+                  <div>
+                      <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                      <input type="email" class="w-full px-4 py-2 border border-gray-200 rounded text-sm" placeholder="Enter email address">
+                  </div>
+                  <div>
+                      <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                      <input type="tel" class="w-full px-4 py-2 border border-gray-200 rounded text-sm" placeholder="Enter phone number">
+                  </div>
+                  <div>
+                      <label class="block text-sm font-medium text-gray-700 mb-2">Role</label>
+                      <div class="relative">
+                          <select class="w-full px-4 py-2 border border-gray-200 rounded text-sm appearance-none pr-8">
+                              <option value="">Select role</option>
+                              <option value="administrator">Administrator</option>
+                              <option value="manager">Manager</option>
+                              <option value="user">User</option>
+                          </select>
+                          <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                              <i class="ri-arrow-down-s-line text-gray-400"></i>
+                          </div>
+                      </div>
+                  </div>
+                  <div>
+                      <label class="block text-sm font-medium text-gray-700 mb-2">Status</label>
+                      <div class="relative">
+                          <select class="w-full px-4 py-2 border border-gray-200 rounded text-sm appearance-none pr-8">
+                              <option value="">Select status</option>
+                              <option value="active">Active</option>
+                              <option value="inactive">Inactive</option>
+                              <option value="pending">Pending</option>
+                          </select>
+                          <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                              <i class="ri-arrow-down-s-line text-gray-400"></i>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="mb-6">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Permissions</label>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <label class="custom-checkbox flex items-center">
+                          <input type="checkbox" checked>
+                          <span class="checkmark mr-2"></span>
+                          <span class="text-sm">View Dashboard</span>
+                      </label>
+                      <label class="custom-checkbox flex items-center">
+                          <input type="checkbox" checked>
+                          <span class="checkmark mr-2"></span>
+                          <span class="text-sm">Manage Transactions</span>
+                      </label>
+                      <label class="custom-checkbox flex items-center">
+                          <input type="checkbox">
+                          <span class="checkmark mr-2"></span>
+                          <span class="text-sm">Manage Accounts</span>
+                      </label>
+                      <label class="custom-checkbox flex items-center">
+                          <input type="checkbox">
+                          <span class="checkmark mr-2"></span>
+                          <span class="text-sm">Manage Settlements</span>
+                      </label>
+                      <label class="custom-checkbox flex items-center">
+                          <input type="checkbox">
+                          <span class="checkmark mr-2"></span>
+                          <span class="text-sm">Risk Control</span>
+                      </label>
+                      <label class="custom-checkbox flex items-center">
+                          <input type="checkbox">
+                          <span class="checkmark mr-2"></span>
+                          <span class="text-sm">System Settings</span>
+                      </label>
+                  </div>
+              </div>
+              <div class="mb-6">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                  <div class="relative">
+                      <input type="password" class="w-full px-4 py-2 border border-gray-200 rounded text-sm" placeholder="Enter password">
+                      <div class="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer">
+                          <i class="ri-eye-off-line text-gray-400"></i>
+                      </div>
+                  </div>
+                  <p class="text-xs text-gray-500 mt-1">Password must be at least 8 characters long with letters, numbers, and special characters.</p>
+              </div>
+              <div class="mb-6">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Confirm Password</label>
+                  <div class="relative">
+                      <input type="password" class="w-full px-4 py-2 border border-gray-200 rounded text-sm" placeholder="Confirm password">
+                      <div class="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer">
+                          <i class="ri-eye-off-line text-gray-400"></i>
+                      </div>
+                  </div>
+              </div>
+              <div class="flex justify-end space-x-3">
+                  <button type="button" id="cancelBtn" class="!rounded-button px-4 py-2 border border-gray-200 text-sm font-medium hover:bg-gray-50 whitespace-nowrap">Cancel</button>
+                  <button type="submit" class="!rounded-button px-4 py-2 bg-primary text-white text-sm font-medium hover:bg-red-700 whitespace-nowrap">Save Account</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  // Select All Checkbox
+  const selectAllCheckbox = document.getElementById('selectAll');
+  const accountCheckboxes = document.querySelectorAll('.account-checkbox');
+  
+  selectAllCheckbox.addEventListener('change', function() {
+  accountCheckboxes.forEach(checkbox => {
+  checkbox.checked = selectAllCheckbox.checked;
+  });
+  });
+  
+  // Modal Functionality
+  const accountModal = document.getElementById('accountModal');
+  const addAccountBtn = document.getElementById('addAccountBtn');
+  const closeModal = document.getElementById('closeModal');
+  const cancelBtn = document.getElementById('cancelBtn');
+  const modalTitle = document.getElementById('modalTitle');
+  const editButtons = document.querySelectorAll('.edit-account-btn');
+  
+  function openModal(isEdit = false) {
+  accountModal.classList.remove('hidden');
+  modalTitle.textContent = isEdit ? 'Edit Account' : 'Add New Account';
+  document.body.style.overflow = 'hidden';
+  }
+  
+  function closeModalFunc() {
+  accountModal.classList.add('hidden');
+  document.body.style.overflow = 'auto';
+  }
+  
+  addAccountBtn.addEventListener('click', function() {
+  openModal(false);
+  });
+  
+  editButtons.forEach(button => {
+  button.addEventListener('click', function(e) {
+  e.preventDefault();
+  openModal(true);
+  });
+  });
+  
+  closeModal.addEventListener('click', closeModalFunc);
+  cancelBtn.addEventListener('click', closeModalFunc);
+  
+  // Close modal when clicking outside
+  accountModal.addEventListener('click', function(e) {
+  if (e.target === accountModal) {
+  closeModalFunc();
+  }
+  });
+  
+  // Form submission (prevent default for demo)
+  const accountForm = document.getElementById('accountForm');
+  accountForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  closeModalFunc();
+  });
+  });
+</script>

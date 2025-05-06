@@ -13,7 +13,7 @@ export const walletStatusGuard: CanActivateFn = (route) => {
     return router.createUrlTree(['/login']);
   }
 
-  const requiredStatus = route.data?.['requiredStatus'] || 'APPROVED';
+  const requiredStatus = route.data?.['requiredStatus'] || 'ACTIVE';
   
   return walletService.getWalletStatus().pipe(
     map(status => {

@@ -1,0 +1,143 @@
+
+<div class="flex min-h-screen">
+  <!-- Sidebar -->
+  <aside id="sidebar" class="sidebar bg-secondary text-white flex flex-col h-screen fixed left-0 z-10">
+      <!-- Logo -->
+      <div class="p-6 flex items-center">
+          <img src="assets/Picture1.png">
+          <!-- <h1 class="font-['Pacifico'] text-2xl text-white logo-text">logo</h1> -->
+      </div>
+      
+      <!-- Navigation -->
+      <nav class="flex-1 px-4 py-6">
+          <ul class="space-y-2">
+              <li>
+                  <a href="/account/dashboard" class="nav-item flex items-center p-3 text-white bg-primary bg-opacity-90 rounded">
+                      <div class="w-6 h-6 flex items-center justify-center">
+                          <i class="ri-dashboard-line ri-lg"></i>
+                      </div>
+                      <span class="ml-3 font-medium">Dashboard</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="/account/users" class="nav-item flex items-center p-3 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded transition-all">
+                      <div class="w-6 h-6 flex items-center justify-center">
+                          <i class="ri-user-line ri-lg"></i>
+                      </div>
+                      <span class="ml-3">Users</span>
+                  </a>
+              </li>
+              <li>
+                  <a routerLink="#" class="nav-item flex items-center p-3 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded transition-all">
+                      <div class="w-6 h-6 flex items-center justify-center">
+                          <i class="ri-bar-chart-line ri-lg"></i>
+                      </div>
+                      <span class="ml-3">Analytics</span>
+                  </a>
+              </li>
+              <li>
+                  <a routerLink="#" class="nav-item flex items-center p-3 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded transition-all">
+                      <div class="w-6 h-6 flex items-center justify-center">
+                          <i class="ri-file-list-line ri-lg"></i>
+                      </div>
+                      <span class="ml-3">Reports</span>
+                  </a>
+              </li>
+              <li>
+                  <a routerLink="#" class="nav-item flex items-center p-3 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded transition-all">
+                      <div class="w-6 h-6 flex items-center justify-center">
+                          <i class="ri-settings-line ri-lg"></i>
+                      </div>
+                      <span class="ml-3">Settings</span>
+                  </a>
+              </li>
+          </ul>
+      </nav>
+      
+      <!-- Sidebar Footer -->
+      <div class="p-4 border-t border-gray-700">
+          <a href="#" class="nav-item flex items-center p-3 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded transition-all">
+              <div class="w-6 h-6 flex items-center justify-center">
+                  <i class="ri-logout-box-line ri-lg"></i>
+              </div>
+              <span class="ml-3">Logout</span>
+          </a>
+      </div>
+      
+      <!-- Toggle Button -->
+      <button id="toggleSidebar" (click)="toggleSidebar()" class="absolute -right-3 top-20 bg-primary text-white w-6 h-6 rounded-full flex items-center justify-center">
+          <i class="ri-arrow-left-s-line"></i>
+      </button>
+  </aside>
+  <!-- Main Content -->
+  <main id="mainContent" class="main-content ml-[260px] p-6 bg-white">
+      <!-- Header -->
+      <header class="flex justify-between items-center mb-8">
+          <div>
+              <h1 class="text-2xl font-bold text-gray-900">Dashboard</h1>
+              <p class="text-gray-600">Welcome back, Admin</p>
+          </div>
+          
+          <div class="flex items-center space-x-4">
+              <!-- Search -->
+              <!-- <div class="relative">
+                  <input type="text" placeholder="Search..." class="py-2 pl-10 pr-4 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                  <div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 flex items-center justify-center text-gray-400">
+                      <i class="ri-search-line"></i>
+                  </div>
+              </div> -->
+              
+              <!-- Notifications -->
+              <div class="relative">
+                  <button class="relative p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-all">
+                      <div class="w-5 h-5 flex items-center justify-center">
+                          <i class="ri-notification-line"></i>
+                      </div>
+                      <span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full"></span>
+                  </button>
+              </div>
+              
+              <!-- Profile -->
+              <div class="flex items-center">
+                  <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
+                      <img src="https://readdy.ai/api/search-image?query=professional%20portrait%20of%20a%20business%20person%20with%20neutral%20expression%2C%20high%20quality%2C%20studio%20lighting%2C%20professional&width=100&height=100&seq=admin1&orientation=squarish" alt="Admin" class="w-full h-full object-cover">
+                  </div>
+                  <div class="ml-3">
+                      <p class="text-sm font-medium text-gray-900">Michael Anderson</p>
+                      <p class="text-xs text-gray-500">Super Admin</p>
+                  </div>
+              </div>
+          </div>
+      </header>
+      <router-outlet></router-outlet>
+  </main>
+</div>
+  
+  <!-- <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // Toggle Sidebar
+          const toggleSidebar = document.getElementById('toggleSidebar');
+          const sidebar = document.getElementById('sidebar');
+          const mainContent = document.getElementById('mainContent');
+          
+          toggleSidebar.addEventListener('click', function() {
+              sidebar.classList.toggle('collapsed');
+              mainContent.classList.toggle('expanded');
+              
+              const icon = this.querySelector('i');
+              if (sidebar.classList.contains('collapsed')) {
+                  icon.classList.remove('ri-arrow-left-s-line');
+                  icon.classList.add('ri-arrow-right-s-line');
+                  mainContent.style.marginLeft = '80px';
+              } else {
+                  icon.classList.remove('ri-arrow-right-s-line');
+                  icon.classList.add('ri-arrow-left-s-line');
+                  mainContent.style.marginLeft = '260px';
+              }
+          });
+      });
+
+      
+  </script>
+
+-->

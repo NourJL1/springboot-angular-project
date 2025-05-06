@@ -3,6 +3,7 @@ import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
   errorMessage: string = '';
+  walletService: any;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -26,7 +28,6 @@ export class LoginComponent {
         console.log('Role array:', response.role);
         console.log('First role:', response.role?.[0]);
   
-        // ✅ FIX: access role name properly from the object inside the array
         const role = response.role?.[0]?.name?.toLowerCase();
   
         if (!role) {
@@ -37,12 +38,23 @@ export class LoginComponent {
         localStorage.setItem('userId', response.userId);
         localStorage.setItem('role', role);
   
-        // ✅ redirect based on role
-        if (role === 'admin') {
-          await this.router.navigate(['/admin-dashboard']);
+        console.log('Stored Role:', localStorage.getItem('role')); // After setting the role in localStorage
+ // Log the stored role
+  
+        if (role.toLowerCase() === 'admin') {
+          console.log('Redirecting to admin dashboard');
+          await this.router.navigate(['/account/dashboard']);
         } else {
-          await this.router.navigate(['/wallet']);
+          console.log('Redirecting to wallet or welcome');
+          const status = await firstValueFrom(this.walletService.getWalletStatus());
+          console.log('Wallet Status:', status); // Log the wallet status
+          if (status === 'ACTIVE') {
+            await this.router.navigate(['/wallet']);
+          } else {
+            await this.router.navigate(['/welcome']);
+          }
         }
+        
       },
       error: (error) => {
         console.error('Login error:', error);
@@ -50,4 +62,5 @@ export class LoginComponent {
       },
     });
   }
+  
 }

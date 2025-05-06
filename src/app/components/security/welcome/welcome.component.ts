@@ -20,7 +20,7 @@ export class WelcomeComponent {
       takeUntil(this.destroy$)
     ).subscribe(() => {
       this.walletService.getWalletStatus().subscribe((status: string) => {
-        if (status === 'APPROVED') {
+        if (status === 'ACTIVE') {
           window.location.href = '/wallet';
         }
       });
