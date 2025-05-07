@@ -27,7 +27,7 @@ export class WalletComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadWallet();
-    
+    this.username = localStorage.getItem('username') || 'User';
     // Set up periodic status checking (every 30 seconds)
     this.statusCheckSubscription = interval(30000).pipe(
       switchMap(() => this.walletService.getWalletStatus())
@@ -85,4 +85,10 @@ export class WalletComponent implements OnInit, OnDestroy {
     // Redirect to login page
     this.router.navigate(['/login']);
   }
+
+  today: Date = new Date();
+
+  username: string = '';
+
+
 }

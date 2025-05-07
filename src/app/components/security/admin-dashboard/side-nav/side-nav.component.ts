@@ -1,11 +1,11 @@
 import {Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild} from '@angular/core';
-import {Router, RouterOutlet} from "@angular/router";
+import {Router, RouterModule, RouterOutlet} from "@angular/router";
 import { AdminDashboardComponent } from '../admin-dashboard.component';
 
 
 @Component({
   selector: 'app-side-nav',
-  imports: [RouterOutlet, AdminDashboardComponent],
+  imports: [RouterOutlet, AdminDashboardComponent , RouterModule],
   templateUrl: './side-nav.component.html',
   styleUrls: ['./side-nav.component.css']
 })

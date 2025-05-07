@@ -21,6 +21,7 @@
         .sidebar.collapsed .sidebar-footer span {
             opacity: 0;
             display: none;
+            
         }
         .card-stats {
             transition: all 0.3s ease;

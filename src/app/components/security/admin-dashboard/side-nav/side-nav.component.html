@@ -1,18 +1,18 @@
-
 <div class="flex min-h-screen">
   <!-- Sidebar -->
   <aside id="sidebar" class="sidebar bg-secondary text-white flex flex-col h-screen fixed left-0 z-10">
       <!-- Logo -->
       <div class="p-6 flex items-center">
-          <img src="assets/Picture1.png">
-          <!-- <h1 class="font-['Pacifico'] text-2xl text-white logo-text">logo</h1> -->
+          <!-- <img src="assets/Picture1.png"> -->
+          <h1 class="font-['Pacifico'] text-2xl text-white logo-text">logo</h1>
       </div>
       
       <!-- Navigation -->
       <nav class="flex-1 px-4 py-6">
           <ul class="space-y-2">
               <li>
-                  <a href="/account/dashboard" class="nav-item flex items-center p-3 text-white bg-primary bg-opacity-90 rounded">
+                  <a routerLink="/account/dashboard" routerLinkActive="bg-primary bg-opacity-90 text-white" [routerLinkActiveOptions]="{ exact: true }"
+                  class="nav-item flex items-center p-3 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded transition-all">
                       <div class="w-6 h-6 flex items-center justify-center">
                           <i class="ri-dashboard-line ri-lg"></i>
                       </div>
@@ -20,7 +20,8 @@
                   </a>
               </li>
               <li>
-                  <a href="/account/users" class="nav-item flex items-center p-3 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded transition-all">
+                  <a routerLink="/account/users" routerLinkActive="bg-primary bg-opacity-90 text-white" [routerLinkActiveOptions]="{ exact: true }"
+                  class="nav-item flex items-center p-3 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded transition-all">
                       <div class="w-6 h-6 flex items-center justify-center">
                           <i class="ri-user-line ri-lg"></i>
                       </div>
@@ -28,7 +29,8 @@
                   </a>
               </li>
               <li>
-                  <a routerLink="#" class="nav-item flex items-center p-3 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded transition-all">
+                  <a routerLink="/account/" routerLinkActive="bg-primary bg-opacity-90 text-white" [routerLinkActiveOptions]="{ exact: true }"
+                  class="nav-item flex items-center p-3 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded transition-all">
                       <div class="w-6 h-6 flex items-center justify-center">
                           <i class="ri-bar-chart-line ri-lg"></i>
                       </div>
@@ -36,7 +38,8 @@
                   </a>
               </li>
               <li>
-                  <a routerLink="#" class="nav-item flex items-center p-3 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded transition-all">
+                  <a routerLink="/account/" routerLinkActive="bg-primary bg-opacity-90 text-white" [routerLinkActiveOptions]="{ exact: true }"
+                  class="nav-item flex items-center p-3 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded transition-all">
                       <div class="w-6 h-6 flex items-center justify-center">
                           <i class="ri-file-list-line ri-lg"></i>
                       </div>
@@ -44,7 +47,8 @@
                   </a>
               </li>
               <li>
-                  <a routerLink="#" class="nav-item flex items-center p-3 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded transition-all">
+                  <a routerLink="/account/" routerLinkActive="bg-primary bg-opacity-90 text-white" [routerLinkActiveOptions]="{ exact: true }"
+                  class="nav-item flex items-center p-3 text-gray-300 hover:bg-white hover:bg-opacity-10 rounded transition-all">
                       <div class="w-6 h-6 flex items-center justify-center">
                           <i class="ri-settings-line ri-lg"></i>
                       </div>
@@ -99,9 +103,9 @@
               
               <!-- Profile -->
               <div class="flex items-center">
-                  <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
+                  <!-- <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
                       <img src="https://readdy.ai/api/search-image?query=professional%20portrait%20of%20a%20business%20person%20with%20neutral%20expression%2C%20high%20quality%2C%20studio%20lighting%2C%20professional&width=100&height=100&seq=admin1&orientation=squarish" alt="Admin" class="w-full h-full object-cover">
-                  </div>
+                  </div> -->
                   <div class="ml-3">
                       <p class="text-sm font-medium text-gray-900">Michael Anderson</p>
                       <p class="text-xs text-gray-500">Super Admin</p>
