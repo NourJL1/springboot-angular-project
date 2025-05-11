@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { NavbarComponent } from '../navbar/navbar.component';
 import { WalletService } from '../../../services/wallet.service';
 import { Subscription, interval, switchMap } from 'rxjs';
 
@@ -11,7 +10,7 @@ import { Subscription, interval, switchMap } from 'rxjs';
   standalone: true,
   templateUrl: './wallet.component.html',
   styleUrls: ['./wallet.component.css'],
-  imports: [CommonModule, NavbarComponent] 
+  imports: [CommonModule] 
 })
 export class WalletComponent implements OnInit, OnDestroy {
   wallet: any = null;
