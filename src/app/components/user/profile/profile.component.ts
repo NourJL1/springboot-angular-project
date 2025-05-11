@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { UserService, User } from '../../../services/user.service';
+import { UserService, User, LocalUser } from '../../../services/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -73,7 +73,11 @@ export class ProfileComponent implements OnInit {
       email: this.profileForm.value.email,
     };
 
-    this.userService.updateUser(this.username, updatedUser as User).subscribe({
+    if (updatedUser.email === null) {
+      this.error = 'Email cannot be null.';
+      return;
+    }
+    this.userService.updateUser(this.username, updatedUser as LocalUser).subscribe({
       next: (updatedUser) => {
         alert('Profile updated successfully!');
         this.user = updatedUser;

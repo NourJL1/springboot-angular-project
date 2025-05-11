@@ -3,7 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Role } from '../entities/role';
-export interface User {
+import { WalletStatus } from '../entities/wallet';
+import { User } from '../entities/user';
+export interface LocalUser {
   id?: number;
   username: string;
   password: string;
@@ -32,7 +34,7 @@ export class UserService {
   }
 
   // Register a new user
-  register(user: User): Observable<User> {
+  register(user: LocalUser): Observable<User> {
     return this.http.post<User>(
       `${this.apiUrl}/register`,
       user,
@@ -55,7 +57,7 @@ export class UserService {
     );
   }
   // Update user information
-  updateUser(username: string, user: User): Observable<User> {
+  updateUser(username: string, user: LocalUser): Observable<User> {
     return this.http.put<User>(
       `${this.apiUrl}/${username}`,
       user,
@@ -97,6 +99,12 @@ export class UserService {
 
   // Get all users
   getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.apiUrl}/`, this.getHttpOptions());
+    return this.http.get<User[]>(`${this.apiUrl}`);
+  }
+
+  updateWalletStatus(walletId: number, status: WalletStatus): Observable<any> {
+    return this.http.patch(`${this.apiUrl}/wallets/${walletId}/status`, { status });
   }
 }
+export { User };
+
