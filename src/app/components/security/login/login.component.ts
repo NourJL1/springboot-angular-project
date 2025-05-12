@@ -21,25 +21,12 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  // jihen addition
-  ngOnInit(): void
-  {
-    localStorage.clear()
-  }
-
   onSubmit(): void {
     this.authService.login(this.username, this.password).subscribe({
       next: async (response) => {
         console.log('Full login response:', response);
         console.log('Role array:', response.role);
         console.log('First role:', response.role?.[0]);
-
-        //jihen addition
-        localStorage.setItem('accessToken', response.accessToken); // Make sure your backend returns a token
-        localStorage.setItem('roles', JSON.stringify(response.roles));
-        localStorage.setItem('username', response.username);
-        localStorage.setItem('userId', response.userId);
-        localStorage.setItem('fullname', response.fullname);
   
         const role = response.role?.[0]?.name?.toLowerCase();
   
@@ -48,9 +35,9 @@ export class LoginComponent {
           return;
         }
   
-        // jihen commented //localStorage.setItem('userId', response.userId);
+        localStorage.setItem('userId', response.userId);
         localStorage.setItem('role', role);
-        // jihen commente //localStorage.setItem('username', response.username || response.user?.username || 'User');
+        localStorage.setItem('username', response.username || response.user?.username || 'User');
 
   
         console.log('Stored Role:', localStorage.getItem('role')); // After setting the role in localStorage
@@ -61,13 +48,10 @@ export class LoginComponent {
           await this.router.navigate(['/account/dashboard']);
         } else {
           console.log('Redirecting to wallet or welcome');
-          // jihen altered, get status from localStorage
-          localStorage.setItem('walletStatus', response.wallet.status)
-          const status = response.wallet.status//await firstValueFrom(this.walletService.getWalletStatus());
-          //jihen commented //const status = await firstValueFrom(this.walletService.getWalletStatus());
+          const status = await firstValueFrom(this.walletService.getWalletStatus());
           console.log('Wallet Status:', status); // Log the wallet status
           if (status === 'ACTIVE') {
-            await this.router.navigate(['/wallet/welcome']);
+            await this.router.navigate(['/wallet']);
           } else {
             await this.router.navigate(['/pending']);
           }

@@ -36,17 +36,17 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/users/login`, loginPayload).pipe(
       tap({
         next: (response) => {
-          // jihen moved code to login component
-          /*localStorage.setItem('authToken', response.token); // Make sure your backend returns a token
+          // Store all necessary user data
+          localStorage.setItem('authToken', response.token); // Make sure your backend returns a token
           localStorage.setItem('roles', JSON.stringify(response.role));
           localStorage.setItem('username', response.username);
           localStorage.setItem('userId', response.userId);
-          localStorage.setItem('fullname', response.fullname);*/
+          localStorage.setItem('fullname', response.fullname);
           
           this.userService.setLoggedInUserId(response.userId);
           
           // Navigate based on user role or status
-         //jihen commented (redundant line, already exists in login component) this.router.navigate(['/wallet']); // Or your default route
+          this.router.navigate(['/wallet']); // Or your default route
         },
         error: (err) => console.error('Login failed:', err)
       }),
@@ -62,11 +62,11 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     // Check both token and userId for more robust authentication
-    return !!localStorage.getItem('accessToken') && !!localStorage.getItem('userId');
+    return !!localStorage.getItem('authToken') && !!localStorage.getItem('userId');
   }
 
   getAuthToken(): string | null {
-    return localStorage.getItem('accessToken');
+    return localStorage.getItem('authToken');
   }
 
   private handleError(error: HttpErrorResponse) {
