@@ -102,7 +102,7 @@ export class UserService {
   }
 
   updateWalletStatus(walletId: number, status: WalletStatus): Observable<any> {
-  return this.http.patch(`http://localhost:8080/wallets/{walletId}/status
+  return this.http.patch(`http://localhost:8080/api/wallet/${walletId}/status
 `, { status }, this.getHttpOptions());
 }
 }

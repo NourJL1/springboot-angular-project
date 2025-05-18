@@ -193,7 +193,7 @@ getActiveWalletCount(): number {
 
 // Add this method to the UsersComponent class
 getInactiveWalletCount(): number {
-  return this.users.filter(user => user.wallet?.status === 'inactive').length;
+  return this.users.filter(user => user.wallet?.status === 'INACTIVE').length;
 }
 // Add the missing method to calculate admin user count
 getAdminUserCount(): number {
