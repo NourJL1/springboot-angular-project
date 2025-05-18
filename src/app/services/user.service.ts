@@ -22,16 +22,15 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   private getHttpOptions() {
-    const roles: Role[] = JSON.parse(localStorage.getItem('roles') || '[]'); // Explicitly typing roles as Role[]
-    const rolesString = roles.map((role) => role.name).join(','); // Join the role names into a string
-
-    return {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Roles': rolesString, // prettier-ignore
-      }),
-    };
-  }
+  const roles: Role[] = JSON.parse(localStorage.getItem('roles') || '[]');
+  const rolesString = roles.map((role) => role.name).join(',');
+  return {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Roles': rolesString // Changed from 'Roles' to 'X-Roles'
+    }),
+  };
+}
 
   // Register a new user
   register(user: LocalUser): Observable<User> {
@@ -103,8 +102,9 @@ export class UserService {
   }
 
   updateWalletStatus(walletId: number, status: WalletStatus): Observable<any> {
-    return this.http.patch(`${this.apiUrl}/wallets/${walletId}/status`, { status });
-  }
+  return this.http.patch(`http://localhost:8080/wallets/{walletId}/status
+`, { status }, this.getHttpOptions());
+}
 }
 export { User };
 

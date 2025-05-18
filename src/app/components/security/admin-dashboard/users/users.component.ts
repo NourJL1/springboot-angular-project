@@ -197,7 +197,7 @@ getInactiveWalletCount(): number {
 }
 // Add the missing method to calculate admin user count
 getAdminUserCount(): number {
-  return this.users.filter(user => user.roles.some(role => role.name === 'Admin')).length;
+  return this.users.filter(user => user.roles.some(role => role.name === 'ADMIN')).length;
 }
  // Add this method to your component class
   calculateMinValue(currentPage: number, itemsPerPage: number, totalItems: number): number {
