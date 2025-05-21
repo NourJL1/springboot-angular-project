@@ -224,4 +224,8 @@ if (this.currentStep === 4) {
       console.log(file);
     }
   }
+
+  goHome(): void {
+  this.router.navigate(['/home']);
+}
 }

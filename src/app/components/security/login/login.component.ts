@@ -64,5 +64,7 @@ export class LoginComponent {
       },
     });
   }
-  
+    goHome(): void {
+  this.router.navigate(['/home']);
+}
 }
